@@ -58,9 +58,9 @@
     .pre {
       /* color: #00ff00 */
       font-family: VT323, serif;
-      font-size: calc(min(14px, 3.5vw));
+      font-size: calc(min(14px, 4.5vw));
       font-weight: normal;
-      line-height: calc(min(14px, 3.5vw));
+      line-height: calc(min(14px, 4.5vw));
       margin: ;
       padding: 0;
       margin-bottom: 16px;
@@ -69,25 +69,25 @@
     .w {
       /* color: #00ff00 */
       color: #F08D49;
-
+      font-size: calc(min(14px, 4.5vw));
     }
 
     .hash {
       color: #e4e4e4;
-
+      font-size: calc(min(14px, 4.5vw));
     }
 
     .input {
       color: #D6B7A3;
-
+      font-size: calc(min(14px, 4.5vw));
     }
 
     .by {
       color: #0c1d12;
       background: #00b600;
-      font-size: calc(min(26px, 3.5vw));
+      font-size: calc(min(26px, 4.5vw));
       font-weight: normal;
-      line-height: calc(min(26px, 3.5vw));
+      line-height: calc(min(26px, 4.5vw));
     }
 
     ::-moz-selection {
@@ -133,6 +133,7 @@
     .body {
       padding: 16px 8px 16px 8px;
       animation: textShadow 1.033s infinite;
+      max-height: 100%;
     }
 
     .flicker {
@@ -231,10 +232,7 @@
       100% {
         transform: skew(0deg, 0deg);
       }
-
     }
-
-
 
     a:hover,
     hr {
@@ -243,13 +241,9 @@
   </style>
 </head>
 
-<body>
-  <div class="scanlines"></div>  <div class="scanline"></div>  <div class="flicker"></div>
-  <div class="body">
-<pre><span class="input">
-$ sudo -s</span><span class="w">
+<body><div class="scanlines"></div>  <div class="scanline"></div>  <div class="flicker"></div><div class="body"><pre><span class="input">$ sudo su -</span><span class="w">
 [sudo] password for user: *********
-<span class="hash"># </span><span class="input">nmap -v -sS -I 10.2.2.2</span><span class="w">
+</span><span class="hash"># </span><span class="input">nmap -v -sS -I 10.2.2.2</span><span class="w">
 Starting Nmap 6.66BETA22
 Initiating SYN Stealth Scan against 10.2.2.2
 Scanning 1 hosts [1000 ports/host]
@@ -260,16 +254,16 @@ PORT     STATE SERVICE
 22/tcp   open  ssh
 
 No exact OS matches for host
-<span class="hash"># </span><span class="input">sshnuke 10.2.2.2 -rootpw="Sn3aker$"</span><span class="w">
+</span><span class="hash"># </span><span class="input">sshnuke 10.2.2.2 -rootpw="Sn3aker$"</span><span class="w">
 Connecting to 10.2.2.2:ssh ... successful.
 Attempting to exploit SSHv1 CRC 32 ... successful.
 Reseting root password to "Sn3aker$".
 System open: Access Level (9)
-<span class="hash"># </span><span class="input">scp user@10.2.2.2:/encrypted/swordfish.crypt .</span><span class="w">
+</span><span class="hash"># </span><span class="input">scp -p user@10.2.2.2:/encrypted/"*" .</span><span class="w">
 root@10.2.2.2's password: ********
 swordfish.crypt                         100%  400KB  2.3MB/s   00:00
 readme.nfo                              100%    1KB  8.2MB/s   00:00
-<span class="hash"># </span><span class="input">cat readme.nfo</span><span class="w">
+</span><span class="hash"># </span><span class="input">cat readme.nfo</span><span class="w">
 Mess with the best, die like the rest.
 </span><span class="hash"># </span><span class="input">openssl enc -aes-256-cbc -d -in software.crypt -out swordfish.crypt</span><span class="w">
 enter decryption password: ********
@@ -281,8 +275,7 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 Using default input encoding: UTF-8
 Loaded 1337 password hashes with 1337 different salts (Raw-SHA256)
 Proceeding with brute force...
-[...]
-No password matches found yet, trying more options...
+No password matches found yet, trying more options... ^C
 </span><span class="hash"># </span><span class="input">fcrackzip -u -D -p /usr/share/wordlists/rockyou.nfo software.crypt</span><span class="w">
 found file 'software.crypt', size: 409600 bytes, method: deflate
 possible pw found: 'H4ckthePlan3t!' 
@@ -299,7 +292,7 @@ extracted: WOPR/
 extracted: NSDD-145.tex
 extracted: instructions.nfo
 
-</span><span class="hash"># </span><span class="input"></span>cat instructions.nfo</span>
+</span><span class="hash"># </span><span class="input">cat instructions.nfo</span>
 
 <a href="mailto:testemail@someserver.com"><span class="by">> TOO MANY SECRETS</span></a>
 </pre>
